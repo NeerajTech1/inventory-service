@@ -14,9 +14,14 @@ public class InventoryController {
 
     private final InventoryService inventoryService;
 
-    @GetMapping
+    @GetMapping("/check")
     @ResponseStatus(HttpStatus.OK)
     public boolean isInStock(@RequestParam String skuCode, @RequestParam Integer quantity){
         return inventoryService.isInStock(skuCode, quantity);
+    }
+
+    @GetMapping("/hello")
+    public String sayHello() {
+        return "Hello!";
     }
 }
